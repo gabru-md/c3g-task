@@ -1,0 +1,68 @@
+A good software catalog must contain the following -
+
+1. Name of the Software Package
+2. Description of the Package
+3. Available Versions of the Package
+4. Last Update Date of the Package ( date of latest version )
+5. A link to the Package Website or Source Code
+6. Credit the author ( If possible )
+7. Category that the package belongs to ( check https://software.nasa.gov/ )
+8. Must display the LICENSE used in the package ( check https://software.nasa.gov/electronics_and_electrical_power )
+9. An Icon/Image corresponding the package ( if available ) ( check https://software.berkeley.edu/software-catalog )
+
+
+How to store an individual package?
+
+An individual package will have the following structure :
+
+{
+	"name" : <package-name>,
+	"versions" : [
+		<version-1>,
+		<version-2>,
+		.
+		.
+	],
+	"description" : <description>,
+	"last_updated" : <last_updated>,
+	"href" : <link_to_website_or_source_code>,
+	"authors" : [
+		// if a package is made by an organization then the name of organization will come into authors
+		<author-1>,
+		<author-2>,
+		.
+		.
+	],
+	"categories" : [
+		<category-1>,
+		<category-2>,
+		.
+		.
+	],
+	"license" : <license>,
+	"icon" : <icon_file_name>
+}
+
+The catalog JSON can be visualized as a collection of all packages represented above. It still needs to work upon whether category should be a part of a package or should packages be kept inside their respective categories. If we want to display the list of packages only then we can store the category inside the package object. But if we plan to display them within their category then having a structure like : 
+
+{
+	"category-1" : [
+		<package-1>,
+		<package-2>,
+		.
+		.
+	],
+	"category-2" : [
+		<package-3>,
+		<package-4>,
+		.
+		.
+	]
+}
+
+will be suitable as it will help us to easily render all packages of a categories together.
+
+
+How to store icon?
+
+If a package has an icon/image then we can store the name of the icon/image file in the package object. A fixed destination for adding icon/image files must be made so that when rendering the icons we can simply use the `$ICONS_FOLDER/icon_name_from_json` format.

@@ -1,0 +1,8 @@
+The following steps describe a very basic layout to proceed with the process of Updation of C3G catalog JSON file-
+
+1. Create a script in Python that generates the JSON file.
+2. Add a Git pre-commit hook which runs the script everytime to update the JSON file.
+( check https://stackoverflow.com/questions/3284292/can-a-git-hook-automatically-add-files-to-the-commit )
+3. The registered changes will then be added to the repository using bash scripts.
+
+Hence the user will not have to manually update/create the JSON everytime a change has been made to the versions.
